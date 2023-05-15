@@ -1,0 +1,159 @@
+
+html{
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#padre{
+    position: relative;
+    display: inline-block;
+    justify-content:right;
+}
+
+.card-title{
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+}
+
+.carousel-item img{
+    filter: brightness(70%);
+}
+
+
+
+/* ESTILO FORMULARIO DESPLEGABLE*/
+
+/* CONTENEDOR */
+.form_container{
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 10px;
+  }
+  
+  /* DIV FORM PRINCIPAL */
+  .form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    color: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    --transform: translateY(-100vh); /* TRASLADA EL FORM ARRIBA DE LA PANTALLA */
+    --transition: transform .8s; /* USA EL COMANDO TRANSITION PARA QUE SE DESPLIEGUE CON EFECTO ARRIBA Y ABAJO */
+  
+  }
+  
+  /* AL AGREGAR ESTA CLASE EN EL FORM, HACE VISIBLE EL FORMULARIO EN PANTALLA */
+  .form--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+  
+  }
+  
+  /* TITULO DEL FORM */
+  .form_title{
+    font-size: 2rem;
+    margin-bottom: 0px;   
+    color: rgb(100,100,100);
+    padding-top: 10px;
+  }
+  
+  
+  .form_container{
+    margin: auto;
+    background: #fff;
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    max-width: 400px;
+    padding: 0em 2em;
+    padding-bottom: 1em;
+    border-radius: 10px;
+    display: grid;
+    transform: var(--transform); /* LLAMA A LAS VARIABLES DEL FORM PRINCIPAL */
+    transition: var(--transition);
+  }
+  
+  .form_group{
+    position: relative;
+    --color:#5757577e;
+  }
+  
+  .form_input{
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+  }
+  
+  /* CUANDO HACE CLIC EN EL INPUT DESPLAZA EL LABEL HACIA ARRIBA CON EFECTO Y LO HACE MAS PEQUEÑO */
+  .form_label{
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY (10px);
+    transition: transform .5s, color .3s;
+  }
+  
+  /* CUANDO HACES FOCUS EN EL INPUT USA LA CALSE .FORM_LABEL PARA DESPLAZAR EL LABEL HACIA ARRIBA */
+  .form_input:focus + .form_label,
+  .form_input:not(:placeholder-shown) + .form_label{
+  
+    transform: translateY(-12px) scale(.7); /* DESPLAZA EL LABEL HACIA ARRIBA Y ACHICA LA LETRA */
+    transform-origin: left top;
+    color: #3866f2
+  }
+  
+  /* BOTON ENVIAR DEL FORM */
+  .form_submit{
+    color: #fff;
+    background-color: #3866f2;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border:none;
+    border-radius: .5em;
+  }
+  
+  /* LINEA INFERIOR DEL INPUT SE TORNA AZUL CUANDO HACES FOCUS Y SE AGRANDA A 1PX */
+  .form_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #3866f2;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+  }
+  
+  /* LLAMA A LA CLASE .FORM_LINE PARA QUE SE EJECUTE CUANDO HACES FOCUS EN EL INPUT */
+  .form_input:focus ~ .form_line,
+  .form_input:not(:placeholder-shown)~.form_line{
+    transform:scale(1)
+  }
+  
+  .form a{
+    text-decoration: none;
+  }
+  
+  #iconomail{
+    font-size: 1em;
+  }
+  /* FIN FORMULARIO DESPLEGABLE */
