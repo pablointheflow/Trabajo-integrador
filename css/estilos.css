@@ -1,7 +1,7 @@
 
 html{
     min-height: 100%;
-    min-width: 100%;
+    min-width: 10%;
 }
 
 #padre{
@@ -10,11 +10,11 @@ html{
     justify-content:right;
 }
 
-.card-title{
+/* .card-title{
     position: absolute;
     bottom: 0;
     right: 1rem;
-}
+} */
 
 .carousel-item img{
     filter: brightness(70%);

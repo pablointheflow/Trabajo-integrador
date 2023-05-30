@@ -1,5 +1,5 @@
 
-    
+
 /* DESPLEGA EL FORM CUANDO PRESIONA EL LINK CONTACTO */
  let openContacto = document.querySelector('.contacto');
  let formulario = document.querySelector('.form');
