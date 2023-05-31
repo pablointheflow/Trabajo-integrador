@@ -33,21 +33,75 @@ function calcularPrecio(){
 
         let precioTot= precio - descuento;
 
-        document.getElementById("total").innerHTML = "Total a pagar: $" + precioTot;
+        document.getElementById("subtotal").innerHTML = "Total a pagar: $" + precioTot;
 
         return precioTot;
 
     }
     else if (cantidad > 15){
-        document.getElementById("total").innerHTML = "Cantidad maxima de entradas: 15";
+        document.getElementById("subtotal").innerHTML = "Cantidad maxima de entradas: 15";
     }
     else if (cantidad == 0)
    {
-      document.getElementById("total").innerHTML = "Total a pagar: $";
+      document.getElementById("subtotal").innerHTML = "Total a pagar: $";
     }
 }
 
 function limpiarDatos(){
-    document.getElementById("total").innerHTML = "Total a pagar: $";
+    document.getElementById("subtotal").innerHTML = "Total a pagar: $";
 }
 
+function resumenDatos(){
+    console.log("Ingreso a tomar los datos");
+    let nomb = document.getElementById("nombre").value;
+    let ape = document.getElementById("apellido").value;
+    let email = document.getElementById("email").value;
+    let cant = document.getElementById("cant").value + " entrada(s)";
+    let total = "Total a abonar: $" + calcularPrecio();
+
+    let datos = [nomb,ape,email,total];
+
+    console.log(datos);
+    
+    
+    const divModal = document.getElementById("datosConfirmar");
+
+    if(nomb == ""){
+        console.log("Falta nombre")
+        const divNom = document.createElement("div");
+        divNom.textContent="Ingrese su nombre";
+        divModal.appendChild(divNom);
+
+    }
+    else if(ape==""){
+        const divApe = document.createElement("div");
+        divApe.textContent="Ingrese su apellido";
+        divModal.appendChild(divApe);
+
+    }
+    else if(email==""){
+        const divEmail = document.createElement("div");
+        divEmail.textContent="Ingrese su email";
+        divModal.appendChild(divEmail);
+    }
+    else {
+        console.log("Ingreso correcto if");
+
+       for(i=0; i < datos.length; i++) {
+        
+        let div = document.createElement("div");
+
+        div.textContent=datos[i];
+
+        divModal.appendChild(div);
+            
+        console.log(datos[i]);
+        
+        // document.getElementById("datosFinal").innerHTML = nomb +" "+ ape;
+        // document.getElementById("emailFinal").innerHTML = email;
+        // document.getElementById("cantEnt").innerHTML = cant;
+        // document.getElementById("totalModal").innerHTML = total;
+
+    };
+}
+}
