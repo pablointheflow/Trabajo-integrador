@@ -63,6 +63,7 @@ function resumenDatos(){
 
     console.log(datos);
     
+    document.getElementById("datosConfirmar").innerHTML = "";
     
     const divModal = document.getElementById("datosConfirmar");
 
@@ -97,11 +98,10 @@ function resumenDatos(){
             
         console.log(datos[i]);
         
-        // document.getElementById("datosFinal").innerHTML = nomb +" "+ ape;
-        // document.getElementById("emailFinal").innerHTML = email;
-        // document.getElementById("cantEnt").innerHTML = cant;
-        // document.getElementById("totalModal").innerHTML = total;
 
     };
+
+    
+
 }
 }
