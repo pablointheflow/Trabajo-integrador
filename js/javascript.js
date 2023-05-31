@@ -52,14 +52,15 @@ function limpiarDatos(){
 }
 
 function resumenDatos(){
-    console.log("Ingreso a tomar los datos");
+    
+
     let nomb = document.getElementById("nombre").value;
     let ape = document.getElementById("apellido").value;
     let email = document.getElementById("email").value;
     let cant = document.getElementById("cant").value + " entrada(s)";
     let total = "Total a abonar: $" + calcularPrecio();
 
-    let datos = [nomb,ape,email,total];
+    let datos = [nomb,ape,email,cant, total];
 
     console.log(datos);
     
