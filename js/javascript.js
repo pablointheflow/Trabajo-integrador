@@ -1,32 +1,15 @@
 
-// function calcularPrecioTotal(){
-
-//     console.log("Ingreso a funcion");
-
-//     let cant = document.getElementById("cantidad").value;
-//     let porcentaje = document.getElementById("descuento").value;
-
-//     //Precio por cantidad de entradas
-//     let precio= cant*1000;
-
-//     //Almaceno el descuento
-//     let desc = precio * porcentaje/100
-
-//     //Almaceno el total con el descuento, precio final
-//     let precioF = precio - desc;
-
-//     document.getElementById("precioFinal").value = precioF;
-    
-// }
-
+//FUNCION PARA CALCULAR EL PRECIO TOTAL DE ENTRADAS
 function calcularPrecio(){
     console.log("Ingreso a funcion");
 
     let cantidad= document.getElementById("cant").value;
     let categoria= document.getElementById("categ").value;
 
+    //COMPRUEBO QUE INGRESE HASTA 15 ENTRADAS
     if(cantidad > 0 && cantidad < 16){
 
+        
         let precio = cantidad *200;
 
         let descuento = precio*categoria/100;
@@ -35,6 +18,7 @@ function calcularPrecio(){
 
         document.getElementById("subtotal").innerHTML = "Total a pagar: $" + precioTot;
 
+        //RETORNO EL TOTAL PARA USAR EN LA FUNCIÓN RESUMENDATOS()
         return precioTot;
 
     }
@@ -43,31 +27,38 @@ function calcularPrecio(){
     }
     else if (cantidad == 0)
    {
+    //RESETEO EL DIV CON EL TEXTO
       document.getElementById("subtotal").innerHTML = "Total a pagar: $";
     }
 }
 
+//RESETEO EL DIV CON EL TEXTO ADENTRO
 function limpiarDatos(){
     document.getElementById("subtotal").innerHTML = "Total a pagar: $";
 }
 
+
 function resumenDatos(){
     
-
+    //GUARDO EN VARIABLES LOS DATOS DEL CLIENTE
     let nomb = document.getElementById("nombre").value;
     let ape = document.getElementById("apellido").value;
     let email = document.getElementById("email").value;
     let cant = document.getElementById("cant").value + " entrada(s)";
     let total = "Total a abonar: $" + calcularPrecio();
 
+    //GUARDO EN UN ARRAY LOS DATOS
     let datos = [nomb,ape,email,cant, total];
 
     console.log(datos);
     
+    //RESETEO EL DIV PARA MOSTRAR LOS DATOS NUEVOS
     document.getElementById("datosConfirmar").innerHTML = "";
     
+    //GUARDO EN DIVMODAL EL DIV DE LA VENTANA MODAL
     const divModal = document.getElementById("datosConfirmar");
 
+    //COMPRUEBO EL INGRESO DE LOS DATOS
     if(nomb == ""){
         console.log("Falta nombre")
         const divNom = document.createElement("div");
@@ -91,11 +82,13 @@ function resumenDatos(){
         divCant.textContent="Ingrese cantidad de entradas";
         divModal.appendChild(divCant);
     }
+    /////
+
     else {
         console.log("Ingreso correcto if");
-
+        //RECORRO EL ARRAY DATOS PARA MOSTRAR LOS DATOS EN LA VENTANA MODAL
        for(i=0; i < datos.length; i++) {
-        
+
         let div = document.createElement("div");
 
         div.textContent=datos[i];
