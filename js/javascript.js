@@ -86,6 +86,11 @@ function resumenDatos(){
         divEmail.textContent="Ingrese su email";
         divModal.appendChild(divEmail);
     }
+    else if(cant == " entrada(s)"){
+        const divCant = document.createElement("div");
+        divCant.textContent="Ingrese cantidad de entradas";
+        divModal.appendChild(divCant);
+    }
     else {
         console.log("Ingreso correcto if");
 
